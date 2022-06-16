@@ -144,7 +144,7 @@ int main(int argc, char *argv[])
     	bool flag =false;
 	while(!flag)
 	{
-	cout <<"Нажмите 0, чтобы завершить программу\n" << "Нажмите 1, чтобы повернуть фигуру\n"<<"Нажмите 2, чтобы увеличить фигуру\n"<<"Нажмите 3, если хотите просто нарисовать фигуру\n";
+	cout <<"Нажмите 0, чтобы завершить программу\n" << "Нажмите 1, чтобы повернуть фигуру\n"<<"Нажмите 2, чтобы увеличить фигуру\n"<<"Нажмите 3, если хотите сдвинуть фигуру\n"<<"Нажмите 4, если хотите просто нарисовать фигуру\n";
 	cin >> n;
 	switch(n)
 	{
@@ -194,6 +194,33 @@ int main(int argc, char *argv[])
     	break;
 	}
 	case 3:
+	{
+	float x,y;
+	cout << "Введите насколько сдвинуть по оси x\n";
+	cin >> x;
+	cout << "Введите насколько сдвинуть по оси y\n";
+	cin >> y;
+	
+	Vector v1;
+	v1.push(vect1[0] + x);
+	v1.push(vect1[1] + y);
+	Vector v2;
+	v2.push(vect2[0] + x);
+	v2.push(vect2[1] + y);
+	Vector v3;
+	v3.push(vect3[0] + x);
+	v3.push(vect3[1] + y);
+	Vector v4;
+	v4.push(vect4[0] + x);
+	v4.push(vect4[1] + y);
+	
+	
+	Engine visualMath = Engine(1000, 1000);
+    	visualMath.Run(v1,v2,v3,v4);
+	
+	break;
+	}
+	case 4:
 	Engine visualMath = Engine(1000, 1000);
     	visualMath.Run(vect1,vect2,vect3,vect4);
 	break;
